@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import './App.css';
+import Signup from './screens/Signup';
 
 function App() {
   useEffect(() => {
@@ -13,7 +14,10 @@ function App() {
   })
   return (
     <div className="App">
-      <h1>Family Reunion</h1>
+      <h1>The Teacher's Lounge</h1>
+      {/* <Signin /> */}
+      <Signup />
+
     
     </div>
   );
