@@ -14,7 +14,7 @@ function App() {
   })
   return (
     <div className="App">
-      <h1>The Teacher's Lounge</h1>
+      <h1 className='header'>The <br/> Teacher's <br/> Lounge</h1>
       {/* <Signin /> */}
       <Signup />
 
