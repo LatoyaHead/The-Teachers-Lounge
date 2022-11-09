@@ -1,42 +1,30 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import './App.css';
-import Signin from './screens/Signin';
-import Navbar from './components/Navbar';
 import Signup from './screens/Signup';
 import Welcome from './screens/Welcome';
 import { 
   createBrowserRouter,
   RouterProvider,
-  Route,
 } from "react-router-dom";
+import Lounge from './screens/Lounge';
 
 const router = createBrowserRouter([ //Creating router
   { // This object let's the router know what url to go to and what element to present on the url
-    path: "/",
-    element: <Welcome />,
-  },
-  {
     path: "/signin",
-    element: <Signin />
+    element: <Welcome />,
   },
   {
     path: '/signup',
     element: <Signup />
+  },
+  {
+    path: '/lounge',
+    element: <Lounge />
   }
 ]);
 
 function App() {
-  useEffect(() => {
-    const fetchData = async() => {
-      const res = await fetch('http://localhost:3001/')
-      const data = await res.json()
-      return data
-    }
-
-    fetchData().then(data => console.log(data))
-  })
-
-  return (
+   return (
     <div className="App">
       <RouterProvider router={router} />
     </div>

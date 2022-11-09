@@ -1,17 +1,62 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Title from '../components/Title'
 import Input from '../components/Input'
 import Button from '../components/Button'
-import Navbar from '../components/Navbar'
+import { NavLink, useNavigate } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 
 const Login = () => {
+  const navigate = useNavigate()
+  const [user, setUser] = useState({email:'', password:''})
+  const handleOnChange = (e) => {
+    setUser({...user, [e.target.name]:e.target.value})
+  }
+  const handleLogin = () => {
+    console.log("Info",user.email, user.password);
+    if(user.email === '' || user.password === ''){
+      console.log('data needed');
+      return
+    }
+    fetch('http://localhost:3001/signin', {
+      method: 'post',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+
+      //make sure to serialize your JSON body
+      body: JSON.stringify({
+        email: user.email,
+        password: user.password,
+      })
+
+    })
+    .then((data) => {
+      console.log("Success", data);
+      navigate('/lounge')
+      setUser({email:'', password:''})
+    })
+    .catch((error) => {
+      console.log("Failed", error);
+    })
+  } 
   return (
-    <div>
-      <Navbar />
-      <Title text='Sign In'/>
-      <Input text='Username' type='text' />
-      <Input text='Password' type='password' />
-      <Button text='Login' backgroundColor='#ea00ff' width={200}/>
+    <div className='signin'>
+      <div style={{marginBottom:30}}>
+        <Title text='' />
+      </div>
+      <div style={{width:300}}>
+        <div className='info'>
+          <Input placeholder='email' name='email' type='text'onChange={handleOnChange}/>
+          <Input placeholder='Password' name='password' type='password' onChange={handleOnChange}/>
+          <Button text='Log In' width='100%' onClick={handleLogin}/>
+        </div>
+        <div className='signup'>
+          <p style={{color: 'white'}}>
+            New to The Teacher's Lounge?<NavLink to='/signup'>Sign Up</NavLink>
+          </p> 
+        </div> 
+      </div>
     </div>
   )
 }
