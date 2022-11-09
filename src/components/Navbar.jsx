@@ -1,20 +1,15 @@
 import React from 'react'
+import "../../src/App.css"
 
 const Navbar = () => {
   return (
-    <div>
-      <head>
-        <link rel="stylesheet" href='/src/App.css'/>
-      </head>
-
     <nav className='nav-container'>
       <a href='/'>Teacher's Lounge</a>
-      <a href='/'>Teacher's Lounge</a>
-      <a href='/'>Teacher's Lounge</a>
-      <a href='/'>Sign In</a>
-      <a href='/'>Sign Up</a>
+      <div className='signin'>
+        <a href='/'>Sign In</a>
+        <a href='/'>Sign Up</a>
+      </div>
     </nav>
-    </div>
   )
 }
 

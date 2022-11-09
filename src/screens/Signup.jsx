@@ -2,12 +2,10 @@ import React from 'react'
 import Title from '../components/Title'
 import Input from '../components/Input'
 import Button from '../components/Button'
-import Navbar from '../components/Navbar'
 
 const Signup = () => {
   return (
     <div>
-      <Navbar />
       <Title text='Signup' />
       <Input text='Name' type='text' />
       <Input text='Username' type='text' />
