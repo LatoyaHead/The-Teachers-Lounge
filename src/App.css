@@ -72,3 +72,11 @@ a:hover {
     text-shadow: none;
   }
 }
+.btn {
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  font-size: 20px;
+  color: #fff;
+  font-weight: bold;
+}

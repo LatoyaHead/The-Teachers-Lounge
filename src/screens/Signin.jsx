@@ -8,10 +8,10 @@ const Login = () => {
   return (
     <div>
       <Navbar />
-      <Title text='Login'/>
+      <Title text='Sign In'/>
       <Input text='Username' type='text' />
       <Input text='Password' type='password' />
-      <Button text='Login' />
+      <Button text='Login' backgroundColor='#ea00ff' width={200}/>
     </div>
   )
 }
