@@ -12,10 +12,10 @@ body {
 }
 .nav-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: right;
   flex-direction: row;
   flex-wrap: wrap;
-  font-size: 20px;
+  font-size: 15px;
   padding-left: 20px;
   padding-right: 20px;
 }
@@ -43,8 +43,8 @@ a:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 80vh;
-  margin-top: 50px;
+  /* height: 80vh; */
+  /* margin-top: 50px; */
 }
 .signup {
   margin-top: 30px;
@@ -206,4 +206,8 @@ form {
 .avatar {
   border-radius: 85%;
   height: 75px;
+}
+.post {
+  color: white;
+  margin-bottom: 30px
 }
