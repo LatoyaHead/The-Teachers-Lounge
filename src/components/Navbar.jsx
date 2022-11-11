@@ -2,13 +2,17 @@ import React from 'react'
 import "../../src/App.css"
 import { NavLink } from "react-router-dom"
 
-const Navbar = () => {
+const Navbar = ({signout}) => {
+  const handleSignOut = () => {
+    console.log('click');
+    localStorage.removeItem('token')
+    signout(true)
+  }
   return (
     <nav className='nav-container'>
-      {/* <NavLink to="/">Teacher's Lounge</NavLink> */}
       <div className='signin'>
         <NavLink to=''>New Post</NavLink>
-        <NavLink to='/signin'>Sign Out</NavLink>
+        <p style={{color:'white', fontSize:'1.5em'}} onClick={handleSignOut}>Sign Out</p>
       </div>
     </nav>
   )

@@ -1,5 +1,5 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom';
+import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 const lounges = [
   {
@@ -12,32 +12,52 @@ const lounges = [
   }
 ]
 const Lounge = ({loggedInUser}) => {
+  const navigate = useNavigate()
+  const [isAuth, setIsAuth] = useState(false)
+  const authenticated = () => {
+    const token = localStorage.getItem('token')
+    if(token) {
+      console.log("token");
+      setIsAuth(false)
+      return false
+    }
+    setIsAuth(true)
+    return true
+  }
+  useEffect(() => {
+    console.log('auth');
+    if(authenticated()) {
+      navigate('/signin')
+    }
+  }, [isAuth])
+
   return (
-    
     <div>
-      <Navbar />
+      <Navbar signout={setIsAuth}/>
       <h1 style={{color:'red', textAlign:'center', fontSize:'55px'}}>The Teacher's Lounge</h1>
       <h2 class="post">Latest Lounge Post</h2>
 
     <section className="lounge-section">
       {lounges.map((lounge) => (
-        <div className="card">
-          <div style={{ padding:'8px', width: '100%', background: '', display: 'flex', justifyContent: 'center', alignItems: 'center', boxSizing:'border-box'}}>
-            <div style={{width: "100%", display: 'flex', flexDirection: "column", alignItems:"center", gap:'10px'}}>
-              <img src={lounge.avatar} alt="users avatar" style={{borderRadius:"50%", height:'65px', background:'white'}}/>
-              <h6 style={{color:'white', fontSize:"20px", textAlign:"left"}}>{lounge.author}</h6>
-              <h2 style={{color:'white', fontSize:"10px"}}>{lounge.timestamps}</h2>
-            </div>
-        </div>
-
-        <div style={{ padding: 10, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-          <a href={`/lounge/${lounge._id}`} style={{ fontSize: 18, justifyContent:'center', padding: 0}}>
+        <div className="card" key={lounge._id}>
+          <div style={{ padding: 10, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            <a href={`/lounge/${lounge._id}`} style={{ fontSize: 18, justifyContent:'center', padding: 0}}>
             {" "}
             <h2>{lounge.title}</h2>
-          </a>
+            </a>
           <div >
               <p className="ellipsis">{lounge.body}</p>
           </div>
+          <div style={{ padding:'8px', width: '100%', background: '', display: 'flex', justifyContent: 'center', alignItems: 'center', boxSizing:'border-box'}}>
+            <div style={{width: "100%", display: 'flex', justifyContent:'start', alignItems:"center", gap:'10px'}}>
+              <img src={lounge.avatar} alt="users avatar" style={{borderRadius:"50%", height:'65px', background:'black'}}/>
+              <div style={{display:'flex', flexDirection:'column', gap:'2px'}}>
+              <h6 style={{color:'black', fontSize:"16px", textAlign:"left"}}>{lounge.author}</h6>
+              <h2 style={{color:'white', fontSize:"11px"}}>{lounge.timestamps}</h2>
+              </div>
+              
+            </div>
+        </div>
           
           {lounge.author === loggedInUser ? (
           <div style={{display: 'flex', gap: 10, width: '100%'}}>

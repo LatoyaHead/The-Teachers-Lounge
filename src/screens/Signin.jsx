@@ -3,7 +3,6 @@ import Title from '../components/Title'
 import Input from '../components/Input'
 import Button from '../components/Button'
 import { NavLink, useNavigate } from 'react-router-dom'
-import { Navigate } from 'react-router-dom'
 
 const Login = () => {
   const navigate = useNavigate()
@@ -12,9 +11,7 @@ const Login = () => {
     setUser({...user, [e.target.name]:e.target.value})
   }
   const handleLogin = () => {
-    console.log("Info",user.email, user.password);
     if(user.email === '' || user.password === ''){
-      console.log('data needed');
       return
     }
     fetch('http://localhost:3001/signin', {
@@ -31,8 +28,11 @@ const Login = () => {
       })
 
     })
-    .then((data) => {
-      console.log("Success", data);
+    .then(async(data) => {
+      const res = await data.json()
+      localStorage.setItem('token', res.token)
+      console.log("Success", res);
+      if(data.status === 400) return
       navigate('/lounge')
       setUser({email:'', password:''})
     })
@@ -40,6 +40,8 @@ const Login = () => {
       console.log("Failed", error);
     })
   } 
+  
+
   return (
     <div className='signin'>
       <div style={{marginBottom:30}}>
