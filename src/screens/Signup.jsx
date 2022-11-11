@@ -1,4 +1,4 @@
-import React,{ useState } from 'react'
+import React,{ useState, useEffect } from 'react'
 import Title from '../components/Title'
 import Input from '../components/Input'
 import Button from '../components/Button'
@@ -9,11 +9,26 @@ import { createAvatar } from '@dicebear/avatars';
 import * as style from '@dicebear/avatars-avataaars-sprites';
 
 const Signup = () => {
+  const [isAuth, setIsAuth] = useState(false)
   const navigate = useNavigate()
   const [user, setUser]= useState({username:'', email:'', password:''})
   const handleOnChange = (e) => {
     setUser({...user, [e.target.name]:e.target.value})
   }
+  const authenticated = () => { //authenticating whether or not the user is logged in by checking token saved on localstorage
+    const token = localStorage.getItem('token')
+    if(token) {
+      setIsAuth(true)
+      return true
+    }
+    setIsAuth(false)
+    return false
+  }
+  useEffect(() => {
+    if(authenticated()) {
+      navigate('/lounge')
+    }
+  }, [isAuth])
 
   const avatar = createAvatar(style, {
     dataUri: true
@@ -40,8 +55,10 @@ const Signup = () => {
       })
 
     })
-    .then((data) => {
-      console.log("Success", data);
+    .then(async(data) => {
+      const res = await data.json()
+      localStorage.setItem('token', res.token)
+      if(data.status === 400) return
       navigate('/lounge')
       setUser({username:'', email:'', password:''})
     })
@@ -49,7 +66,7 @@ const Signup = () => {
       console.log("Failed", error);
     })
   } 
-  console.log(user);
+
   return (
     <WelcomeContainer width='50%'>
       <div className='signin'>

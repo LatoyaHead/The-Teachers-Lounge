@@ -31,7 +31,6 @@ const Login = () => {
     .then(async(data) => {
       const res = await data.json()
       localStorage.setItem('token', res.token)
-      console.log("Success", res);
       if(data.status === 400) return
       navigate('/lounge')
       setUser({email:'', password:''})
