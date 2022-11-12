@@ -84,7 +84,7 @@ const Signup = () => {
 
           <div className="signup">
               <p style={{color: 'white'}}>
-                Already have an Account?<NavLink to='/signin'>Log In</NavLink>
+                Already have an Account?<NavLink to='/'>Log In</NavLink>
               </p>
           </div>
         </div>

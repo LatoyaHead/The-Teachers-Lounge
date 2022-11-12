@@ -2,6 +2,7 @@ import React from 'react'
 import './App.css';
 import Signup from './screens/Signup';
 import Welcome from './screens/Welcome';
+import New from './screens/New';
 import { 
   createBrowserRouter,
   RouterProvider,
@@ -10,7 +11,7 @@ import Lounge from './screens/Lounge';
 
 const router = createBrowserRouter([ //Creating router
   { // This object let's the router know what url to go to and what element to present on the url
-    path: "/signin",
+    path: "/",
     element: <Welcome />,
   },
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([ //Creating router
   {
     path: '/lounge',
     element: <Lounge />
+  },
+  {
+    path: '/new',
+    element: <New />
   }
 ]);
 

@@ -205,3 +205,37 @@ form {
   color: white;
   margin-bottom: 30px
 }
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+.text-background {
+  background-color: rgb(245,245,245, 0.6);
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 25px;
+}
+input[type="submit"] {
+  padding: 5px 25px;
+  color: white;
+  background: black;
+  font-size: 15px;
+  border-radius: 30px;
+  border: none;
+  font-weight: bold;
+  transition: .4s;
+}
+.title {
+  height: 140;
+  width: 100%;
+  background: black; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+  color: red;
+}

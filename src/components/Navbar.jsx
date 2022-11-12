@@ -11,7 +11,7 @@ const Navbar = ({signout}) => {
   return (
     <nav className='nav-container'>
       <div className='signin'>
-        <NavLink to=''>New Post</NavLink>
+        <NavLink to='/new'>New Post</NavLink>
         <p style={{color:'white', fontSize:'1.5em'}} onClick={handleSignOut}>Sign Out</p>
       </div>
     </nav>

@@ -27,7 +27,7 @@ const Lounge = ({loggedInUser}) => {
   useEffect(() => {
     console.log('auth');
     if(authenticated()) {
-      navigate('/signin')
+      navigate('/')
     }
   }, [isAuth])
 
