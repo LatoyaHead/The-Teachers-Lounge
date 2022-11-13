@@ -3,6 +3,8 @@ import './App.css';
 import Signup from './screens/Signup';
 import Welcome from './screens/Welcome';
 import New from './screens/CreateTopic';
+import TopicEdit from './components/TopicEdit';
+import TopicDetails from './components/TopicDetails';
 import { decodeToken } from "react-jwt"
 import { 
   createBrowserRouter,
@@ -27,6 +29,14 @@ const router = createBrowserRouter([ //Creating router
   {
     path: '/new',
     element: <New />
+  }, 
+  {
+    path: '/topic/:id',
+    element: <TopicEdit />
+  },
+  {
+    path: 'topic-details/:id',
+    element: <TopicDetails />
   }
 ]);
 

@@ -46,7 +46,7 @@ import Button from '../components/Button';
       setTopic({...topic, [e.target.name]:e.target.value})
     }
   return (
-    <div style={{width:'75%'}}>
+    <div className="pages" >
       {/* <Navbar signout={setIsAuth} /> */}
       <div className="center">
         <TextBackground style={{width:300}} title="CREATE NEW POST">

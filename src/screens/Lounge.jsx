@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react'
 import Navbar from '../components/Navbar';
 import { UserContext } from '../App';
+import {Link} from 'react-router-dom'
 
 
 const Lounge = ({loggedInUser}) => {
@@ -22,16 +23,17 @@ const Lounge = ({loggedInUser}) => {
   console.log(topics);
 
   return (
-    <div>
+    <div className='pages'>
       <Navbar />
-      <h1 style={{color:'red', textAlign:'center', fontSize:'55px'}}>The Teacher's Lounge</h1>
+      <hr className='line' />
+      <h1 style={{color:'rgb(136,0,0)', textAlign:'center', fontSize:'55px'}}>The Teacher's Lounge</h1>
       <h2 className="post">Latest Lounge Post</h2>
 
     <section className="lounge-section">
       {topics.map((topic) => (
         <div className="card" key={topic._id}>
           <div style={{ padding: 10, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-            <a href={`/topic/${topic._id}`} style={{ fontSize: 18, justifyContent:'center', padding: 0}}>
+            <a href={`/topic-details/${topic._id}`} style={{ fontSize: 18, justifyContent:'center', padding: 0}}>
             {" "}
             <h2>{topic.title}</h2>
             </a>
@@ -51,13 +53,12 @@ const Lounge = ({loggedInUser}) => {
           
           {true ? (
           <div style={{display: 'flex', gap: 10, width: '100%'}}>
-            <form action={`/${topic._id}?_method=DELETE`} method='POST'className="parent-input-div">
-              <div className="parent-input-div">
-                <input type='submit' value='Delete' className="delete-button percent-100" style={{padding:'0.3em'}}/>
-              </div>
-            </form>
+            <div className="parent-input-div">
+              <input type='submit' value='Delete' className="delete-button percent-100" style={{padding:'0.3em'}}/>
+            </div>
+            
             <div className="parent-input-div percent-100">
-              <a href={`/edit/${topic._id}`} className="edit-button percent-100">Edit</a>
+              <Link to={`/topic/${topic._id}`} className="edit-button percent-100">Edit</Link>
             </div>
           </div> 
             ) : null}

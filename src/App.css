@@ -2,13 +2,15 @@
   margin: 0;
   padding: 0;
 }
-body {
+.welcome {
   background: url('https://images.unsplash.com/photo-1552819401-700b5e342b9d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
   background-size: cover;
   font-family: "Comfortaa", cursive;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center; 
+  height: 100vh;
+  padding: 25px;
 }
 .nav-container {
   display: flex;
@@ -42,6 +44,8 @@ a:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 45px;
+  padding-left: 255px;
 }
 .signup {
   margin-top: 30px;
@@ -57,8 +61,9 @@ a:hover {
       0 0 92px red,
       0 0 102px red,
       0 0 151px red;
-  font-size: 95px;
-  text-align: left;
+  font-size: 115px;
+  padding-left: 295px;
+  text-align: center;
   animation: flicker 1.5s infinite alternate;
 }
 @keyframes flicker {
@@ -205,7 +210,8 @@ form {
 .post {
   color: white;
   margin-bottom: 30px;
-  text-align: center;
+  text-align: left;
+  padding-left: 25px;
 }
 .center {
   display: flex;
@@ -240,4 +246,17 @@ input[type="submit"] {
   padding: 20px;
   box-sizing: border-box;
   color: red;
+}
+.pages {
+  background-image: linear-gradient(to right, rgba(0,0,0,1),rgba(56, 56, 56));;
+  height: 100vh;
+}
+.line {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  border-color: red;
+  height: 12px;
+  margin-bottom: 40px;
+    
 }

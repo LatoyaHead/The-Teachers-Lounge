@@ -2,7 +2,7 @@ import React from 'react'
 
 const Show = ({lounge}) => {
   return (
-    <div>
+    <div className='pages'>
       <h1>Lounge</h1>
       
       <h1>{lounge.title}</h1>
