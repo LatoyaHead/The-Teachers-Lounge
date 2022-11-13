@@ -27,7 +27,6 @@ a {
   padding: 5px;
   display: flex;
   justify-content: center;
-  padding: 0.3em;
   border-radius: 10%;
 }
 a:hover {
@@ -153,6 +152,7 @@ a:hover {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+  padding: 45px;
 }
 .card {
   box-shadow: 8px 10px 10px 10px rgba(0,0,0,0.2);
@@ -171,22 +171,23 @@ form {
 .parent-input-div {
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 .parent-input-div .delete-button {
-  width: 100%;
   font-size: 1.5em;
-  background: salmon;
+  background: black;
   color: white;
-  border: 1px solid salmon;
+  border: none;
   font-family: Comfortaa;
-  text-shadow: 1px 1px 1px black;
   border-radius: 10px;
   display: flex;
   justify-content: center;
 }
+.percent-100 {
+  width: 100%
+}
 .parent-input-div .edit-button {
   background: black;
-  width: 100%;
   justify-content: center;
   color: white;
   border-radius: 10px;
@@ -203,7 +204,8 @@ form {
 }
 .post {
   color: white;
-  margin-bottom: 30px
+  margin-bottom: 30px;
+  text-align: center;
 }
 .center {
   display: flex;

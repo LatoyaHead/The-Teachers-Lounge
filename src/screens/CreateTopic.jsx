@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import Navbar from '../components/Navbar'
 import TextBackground from '../components/TextBackground'
 import { useNavigate } from 'react-router-dom';
+import { UserContext } from '../App';
 import Input from '../components/Input';
 import Button from '../components/Button';
 
-  const New = () => {
+  const CreateTopic = () => {
     const navigate = useNavigate()
+    const user = useContext(UserContext)
     const [topic, setTopic] = useState({title:"", body:""})
     const createTopic = (e) => {
       e.preventDefault()
@@ -24,7 +26,8 @@ import Button from '../components/Button';
         body: JSON.stringify({
           title: topic.title,
           body: topic.body,
-          author: "Toya"
+          author: user?.user.username,
+          avatar: user?.user.avatar
         })
   
       })
@@ -42,7 +45,6 @@ import Button from '../components/Button';
     const handleOnChange = (e) => {
       setTopic({...topic, [e.target.name]:e.target.value})
     }
-    console.log(topic);
   return (
     <div style={{width:'75%'}}>
       {/* <Navbar signout={setIsAuth} /> */}
@@ -62,4 +64,4 @@ import Button from '../components/Button';
   )
 }
 
-export default New
+export default CreateTopic
