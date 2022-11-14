@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../App';
 import Input from '../components/Input';
 import Button from '../components/Button';
+import Footer from '../components/Footer';
 
   const CreateTopic = () => {
     const navigate = useNavigate()
@@ -27,7 +28,8 @@ import Button from '../components/Button';
           title: topic.title,
           body: topic.body,
           author: user?.user.username,
-          avatar: user?.user.avatar
+          avatar: user?.user.avatar,
+          author_id: user?.user._id
         })
   
       })
@@ -47,7 +49,9 @@ import Button from '../components/Button';
     }
   return (
     <div className="pages" >
-      {/* <Navbar signout={setIsAuth} /> */}
+      <Navbar />
+      <h1 style={{color:'rgb(136,0,0)', textAlign:'center', fontSize:'55px'}}>The Teacher's Lounge</h1>
+      <hr className='line' />
       <div className="center">
         <TextBackground style={{width:300}} title="CREATE NEW POST">
         <form action="/topic" method="POST">
@@ -60,6 +64,7 @@ import Button from '../components/Button';
         </form>
         </TextBackground>
       </div>
+      <Footer/>
     </div>
   )
 }

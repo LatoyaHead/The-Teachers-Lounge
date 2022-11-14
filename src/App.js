@@ -3,8 +3,8 @@ import './App.css';
 import Signup from './screens/Signup';
 import Welcome from './screens/Welcome';
 import New from './screens/CreateTopic';
-import TopicEdit from './components/TopicEdit';
-import TopicDetails from './components/TopicDetails';
+import TopicEdit from './screens/TopicEdit';
+import TopicDetails from './screens/TopicDetails';
 import { decodeToken } from "react-jwt"
 import { 
   createBrowserRouter,
@@ -58,7 +58,7 @@ function App() {
   }, [isAuth])
    return (
     <div className="App">
-      <UserContext.Provider value={{user, auth:isAuth}}>
+      <UserContext.Provider value={{user, auth:isAuth, setUser, setIsAuth}}>
         <RouterProvider router={router} />    
       </UserContext.Provider>
     </div>

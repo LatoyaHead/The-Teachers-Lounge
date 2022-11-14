@@ -35,6 +35,10 @@ a:hover {
   color: red;
   cursor: pointer;
 }
+p:hover {
+  color: red;
+  cursor: pointer;
+}
 .signin .signup {
   display: flex;
   justify-content: center;
@@ -248,15 +252,31 @@ input[type="submit"] {
   color: red;
 }
 .pages {
-  background-image: linear-gradient(to right, rgba(0,0,0,1),rgba(56, 56, 56));;
+  background-image: linear-gradient(to right, rgba(0,0,0,1),rgba(56, 56, 56));
   height: 100vh;
 }
 .line {
   width: 70%;
   margin-left: auto;
   margin-right: auto;
-  border-color: red;
-  height: 12px;
+  border: 2px solid red;
   margin-bottom: 40px;
-    
+  margin-top: 30px;
+}
+.details {
+  color: white;
+  width: 60%;
+  background-color: rgb(245,245,245, 0.6);
+  display: flex;
+  flex-direction: row;
+  border-radius: 8px;
+}
+.footer {
+  background: grey;
+  text-align: center;
+  /* padding: 35px; */
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem; 
 }

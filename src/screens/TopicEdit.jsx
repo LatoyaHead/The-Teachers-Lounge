@@ -1,8 +1,10 @@
 import React, {useState, useEffect} from 'react'
 import {useParams, useNavigate} from 'react-router-dom'
-import TextBackground from './TextBackground'
-import Input from './Input'
-import Button from './Button'
+import TextBackground from '../components/TextBackground'
+import Input from '../components/Input'
+import Button from '../components/Button'
+import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 
 const TopicEdit = () => {
   const [topic, setTopic] = useState(null)
@@ -53,7 +55,9 @@ const editTopic = async (e) => {
 }
   return (
     <div className="pages">
-      {/* <Navbar signout={setIsAuth} /> */}
+      <Navbar />
+      <h1 style={{color:'rgb(136,0,0)', textAlign:'center', fontSize:'55px'}}>The Teacher's Lounge</h1>
+      <hr className='line' />
       <div className="center">
         <TextBackground style={{width:300}} title="EDIT POST">
         <form>
@@ -66,6 +70,7 @@ const editTopic = async (e) => {
         </form>
         </TextBackground>
       </div>
+      <Footer />
     </div>
   )
 }

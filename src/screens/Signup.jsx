@@ -1,5 +1,4 @@
 import React,{ useState, useEffect } from 'react'
-import Title from '../components/Title'
 import Input from '../components/Input'
 import Button from '../components/Button'
 import Navbar from '../components/Navbar'
@@ -71,7 +70,6 @@ const Signup = () => {
     <WelcomeContainer width='50%'>
       <div className='signin'>
         <div style={{marginBottom:30}}>
-          <Title text='Create Account' />
         </div>
         <div style={{width:300}}>
           <div className='info'>

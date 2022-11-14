@@ -2,11 +2,16 @@ import React, { useEffect, useState, useContext } from 'react'
 import Navbar from '../components/Navbar';
 import { UserContext } from '../App';
 import {Link} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
+import { decodeToken } from "react-jwt"
+import Footer from '../components/Footer';
 
-
-const Lounge = ({loggedInUser}) => {
+const Lounge = () => {
   const user = useContext(UserContext)
+  console.log(user);
+  const navigate = useNavigate()
   const [topics, setTopics] = useState([])
+ 
 
   const getTopics = async () => {
     try {
@@ -17,16 +22,50 @@ const Lounge = ({loggedInUser}) => {
       console.log('Topic Errors', error);
     }
   }
-  useEffect(() => {
-    getTopics()
-  }, [])
-  console.log(topics);
+  const authenticated = () => { //authenticating whether or not the user is logged in by checking token saved on localstorage
+    const token = localStorage.getItem('token')
+    if(token) {
+      user.setIsAuth(false)
+      return false
+    }
+    user.setIsAuth(true)
+    return true
+  }
+  const decodeUser = () => {
+    const token = localStorage.getItem('token')
+    if(token) {
+      const decode = decodeToken(token)
+      user.setUser(decode.user)
+      user.setIsAuth(true)
+    }
+  }
+  
+  const handleDelete = (topicId) => {
+    fetch(`http://localhost:3001/remove/${topicId}`, {
+      method: 'delete'
+    })
+    .then(res => {
+      console.log(res);
+      setTopics(topics.filter(topic => topic._id !== topicId))
+    }).catch(error => {
+      console.log(error);
+    }) 
+  }
 
+  useEffect(() => {
+    if(authenticated()) {
+      navigate('/')
+    }
+    getTopics()
+    decodeUser()
+  }, [user.isAuth])
+console.log("topic", topics);
   return (
     <div className='pages'>
-      <Navbar />
-      <hr className='line' />
+      <Navbar signout={user.setIsAuth}/>
+      
       <h1 style={{color:'rgb(136,0,0)', textAlign:'center', fontSize:'55px'}}>The Teacher's Lounge</h1>
+      <hr className='line' />
       <h2 className="post">Latest Lounge Post</h2>
 
     <section className="lounge-section">
@@ -51,10 +90,10 @@ const Lounge = ({loggedInUser}) => {
             </div>
         </div>
           
-          {true ? (
+          {user.user._id ===  topic.author_id ? (
           <div style={{display: 'flex', gap: 10, width: '100%'}}>
             <div className="parent-input-div">
-              <input type='submit' value='Delete' className="delete-button percent-100" style={{padding:'0.3em'}}/>
+              <button className="delete-button percent-100" style={{padding:'0.3em'}} onClick={() => handleDelete(topic._id)}>Delete</button>
             </div>
             
             <div className="parent-input-div percent-100">
@@ -66,9 +105,11 @@ const Lounge = ({loggedInUser}) => {
       </div>
     ))}
     </section>
-
+    <Footer/>
     </div>
+    
     );
     }
+    
 
 export default Lounge

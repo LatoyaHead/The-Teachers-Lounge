@@ -1,10 +1,10 @@
-import React from 'react'
+// import React from 'react'
 
-const Title = ({text}) => {
-  return (
-    <h1 style={{color: 'white'}}>{text}</h1>
-  )
-}
+// const Title = ({text}) => {
+//   return (
+//     <h1 style={{color: 'white'}}>{text}</h1>
+//   )
+// }
 
 
-export default Title
+// export default Title
