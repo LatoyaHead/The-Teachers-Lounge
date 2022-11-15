@@ -18,9 +18,9 @@ const Navbar = () => {
   return (
     <nav className='nav-container'>
       <div className='signin'>
-        <NavLink to='/new'>New Post</NavLink>
-        <NavLink to='/lounge'>Lounge</NavLink>
-        <p style={{color:'white', fontSize:'1.5em'}} onClick={handleSignOut}>Sign Out</p>
+        <NavLink style={{color:'rgb(245,245,245, 0.6)'}} to='/new'>New Post</NavLink>
+        <NavLink style={{color:'rgb(245,245,245, 0.6)'}} to='/lounge'>Lounge</NavLink>
+        <p style={{color:'rgb(245,245,245, 0.6)', fontSize:'25px', fontWeight:"bold"}} onClick={handleSignOut}>Sign Out</p>
       </div>
     </nav>
   )

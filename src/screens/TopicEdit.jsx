@@ -1,10 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import {useParams, useNavigate} from 'react-router-dom'
-import TextBackground from '../components/TextBackground'
-import Input from '../components/Input'
-import Button from '../components/Button'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import Form from '../components/Form'
 
 const TopicEdit = () => {
   const [topic, setTopic] = useState(null)
@@ -56,19 +54,16 @@ const editTopic = async (e) => {
   return (
     <div className="pages">
       <Navbar />
-      <h1 style={{color:'rgb(136,0,0)', textAlign:'center', fontSize:'55px'}}>The Teacher's Lounge</h1>
+      <h1 style={{color:'rgb(136,0,0)', textAlign:'center', fontSize:'75px'}}>The Teacher's Lounge</h1>
       <hr className='line' />
       <div className="center">
-        <TextBackground style={{width:300}} title="EDIT POST">
-        <form>
-          <Input type="text" name="title" placeholder='Topic' style={{width:'100%', boxSizing: 'border-box' }} onChange={handleOnChange} required defaultValue={topic?.title}/>
-          <br />
-          <textarea type="text" name="body" onChange={handleOnChange} placeholder="Insert text here.." rows="10" style={{width:'100%', boxSizing: 'border-box'}} required defaultValue={topic?.body}/>
-          <br />
-          <Button text="POST!" onClick={editTopic}/>
-          <br />
-        </form>
-        </TextBackground>
+        <Form
+          title={'Edit Post'} 
+          btnText={'UPDATE!'}
+          handleOnChange={handleOnChange}
+          submit={editTopic}
+          defaultValue={topic}
+        />
       </div>
       <Footer />
     </div>

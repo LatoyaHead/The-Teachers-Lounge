@@ -1,11 +1,9 @@
 import React, { useEffect, useState, useContext } from 'react'
 import Navbar from '../components/Navbar'
-import TextBackground from '../components/TextBackground'
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../App';
-import Input from '../components/Input';
-import Button from '../components/Button';
 import Footer from '../components/Footer';
+import Form from '../components/Form';
 
   const CreateTopic = () => {
     const navigate = useNavigate()
@@ -50,19 +48,16 @@ import Footer from '../components/Footer';
   return (
     <div className="pages" >
       <Navbar />
-      <h1 style={{color:'rgb(136,0,0)', textAlign:'center', fontSize:'55px'}}>The Teacher's Lounge</h1>
+      <h1 style={{color:'rgb(136,0,0)', textAlign:'center', fontSize:'75px'}}>The Teacher's Lounge</h1>
       <hr className='line' />
       <div className="center">
-        <TextBackground style={{width:300}} title="CREATE NEW POST">
-        <form action="/topic" method="POST">
-          <Input type="text" name="title" placeholder='Topic' style={{width:'100%', boxSizing: 'border-box' }} onChange={handleOnChange} required />
-          <br />
-          <textarea type="text" name="body" onChange={handleOnChange} placeholder="Insert text here.." rows="10" style={{width:'100%', boxSizing: 'border-box'}} required />
-          <br />
-          <Button text="POST!" onClick={createTopic}/>
-          <br />
-        </form>
-        </TextBackground>
+        <Form
+          title={'Create New Post'} 
+          btnText={'CREATE!'}
+          handleOnChange={handleOnChange}
+          submit={createTopic}
+          defaultValue={topic}
+        />
       </div>
       <Footer/>
     </div>

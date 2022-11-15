@@ -81,7 +81,7 @@ const sendMessage = () => {
         <div className='details'>
           <div style={{width:'50%'}}>
             <h1 style={{textAlign:'center'}}>{topic?.title}</h1>
-            <p style={{padding:'10px'}}>{topic?.body}</p>
+            <p style={{padding:'20px'}}>{topic?.body}</p>
           </div>
           <div style={{width:'50%', padding:"10px", display:'flex', flexDirection:'column', gap:"8px"}}>
             {

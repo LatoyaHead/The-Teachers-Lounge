@@ -15,28 +15,23 @@
 .nav-container {
   display: flex;
   justify-content: right;
-  flex-direction: row;
-  flex-wrap: wrap;
   font-size: 15px;
-  padding-left: 20px;
   padding-right: 20px;
 }
 a {
   color: white;
   text-decoration: none;
   text-shadow: 1px 1px 1px black;
-  font-size: 1.5em;
+  font-size: 25px;
+  font-weight: bold;
   padding: 5px;
   display: flex;
   justify-content: center;
   border-radius: 10%;
+  font-family: Georgia, 'Times New Roman', Times, serif; 
 }
 a:hover {
-  color: red;
-  cursor: pointer;
-}
-p:hover {
-  color: red;
+  color: rgb(136,0,0);
   cursor: pointer;
 }
 .signin .signup {
@@ -46,10 +41,12 @@ p:hover {
 }
 .signin {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   padding-top: 45px;
-  padding-left: 255px;
+  padding-left: 295px;
+  gap: 20px;
+  justify-content: center;
 }
 .signup {
   margin-top: 30px;
@@ -92,70 +89,22 @@ p:hover {
   width: 220px;
   height: 50px;
   font-size: 25px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, 'Times New Roman', Times, serif; 
   font-weight: bold;
   border: none;
   outline: none;
-  color: #fff;
-  background: #111;
+  color: white;
+  background: black;
   cursor: pointer;
-  position: relative;
-  z-index: 0;
   border-radius: 10px;
-}
-
-.btn:before {
-  content: '';
-  background: linear-gradient(45deg, #7a00ff, #002bff, #ff0000, #002bff, #7a00ff, #ff0000, #002bff, #ff0000);
-  position: absolute;
-  top: -2px;
-  left:-2px;
-  background-size: 400%;
-  z-index: -1;
-  filter: blur(5px);
-  width: calc(100% + 4px);
-  height: calc(100% + 4px);
-  animation: glowing 20s linear infinite;
-  opacity: 0;
-  transition: opacity .3s ease-in-out;
-  border-radius: 10px;
-}
-
-.btn:active {
-  color: #111;
-}
-
-.btn:after {
-  background: transparent;
-}
-
-.btn:before {
-  opacity: 1;
-}
-
-.btn:after {
-  z-index: -1;
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: #111;
-  left: 0;
-  top: 0;
-  border-radius: 10px;
-}
-
-@keyframes glowing {
-  0% { background-position: 0 0; }
-  50% { background-position: 400% 0; }
-  100% { background-position: 0 0; }
 }
 .input-style {
   padding: 10px;
   width: 100%;
   box-sizing: border-box;
   margin-bottom: 10px;
-  border-radius: 10px;
+  border-radius: 1px;
+  border: 1px solid;
 }
 .lounge-section {
   display: flex;
@@ -171,6 +120,7 @@ p:hover {
   width: 300px;
   border-radius: 10px;
 }
+
 form {
   display: flex;
   flex-direction: column;
@@ -183,12 +133,13 @@ form {
   width: 100%;
 }
 .parent-input-div .delete-button {
-  font-size: 1.5em;
-  background: black;
+  font-size: 20px;
+  background: rgb(136,0,0);
   color: white;
   border: none;
-  font-family: Comfortaa;
-  border-radius: 10px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: bold;
+  border-radius: 8px;
   display: flex;
   justify-content: center;
 }
@@ -199,7 +150,10 @@ form {
   background: black;
   justify-content: center;
   color: white;
-  border-radius: 10px;
+  border-radius: 8px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: bold;
+  font-size: 20px;
 }
 .ellipsis {
   display: -webkit-box;
@@ -212,8 +166,9 @@ form {
   height: 75px;
 }
 .post {
-  color: white;
-  margin-bottom: 30px;
+  color: rgb(136,0,0);
+  margin-bottom: 10px;
+  margin: 15px;
   text-align: left;
   padding-left: 25px;
 }
@@ -221,7 +176,7 @@ form {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80vh;
+  margin-top: 70px;
 }
 .text-background {
   background-color: rgb(245,245,245, 0.6);
@@ -235,7 +190,7 @@ input[type="submit"] {
   color: white;
   background: black;
   font-size: 15px;
-  border-radius: 30px;
+  border-radius: 10px;
   border: none;
   font-weight: bold;
   transition: .4s;
@@ -249,7 +204,8 @@ input[type="submit"] {
   align-items: center;
   padding: 20px;
   box-sizing: border-box;
-  color: red;
+  color: rgb(136,0,0);
+  font-size: 25px;
 }
 .pages {
   background-image: linear-gradient(to right, rgba(0,0,0,1),rgba(56, 56, 56));
@@ -259,9 +215,9 @@ input[type="submit"] {
   width: 70%;
   margin-left: auto;
   margin-right: auto;
-  border: 2px solid red;
+  border: 2px solid rgb(245,245,245, 0.6);
   margin-bottom: 40px;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 .details {
   color: white;
@@ -272,11 +228,23 @@ input[type="submit"] {
   border-radius: 8px;
 }
 .footer {
-  background: grey;
+  background: rgb(245,245,245, 0.6);
   text-align: center;
-  /* padding: 35px; */
   position: absolute;
   bottom: 0;
   width: 100%;
   height: 2.5rem; 
+}
+.edit-b {
+  width: 220px;
+  height: 50px;
+  font-size: 25px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  color: rgb(136,0,0);
+  background: #111;
+  cursor: pointer;
+  border-radius: 1px;
 }
