@@ -29,7 +29,7 @@ const handleOnChange = (e) => {
 const editTopic = async (e) => {
   e.preventDefault()
   try {
-    const res = await fetch(`http://localhost:3001/${params.id}`,{
+    const res = await fetch(`http://localhost:3001/${params.id}`,{ //send id of the post we want to edit 
       method: 'put',
       headers: {
         'Accept': 'application/json',

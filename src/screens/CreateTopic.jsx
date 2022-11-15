@@ -15,7 +15,7 @@ import Form from '../components/Form';
       if(topic.title === '' || topic.body === ''){
         return
       }
-      fetch('http://localhost:3001/topic', {
+      fetch('http://localhost:3001/topic', { //
         method: 'post',
         headers: {
           'Accept': 'application/json',
@@ -23,7 +23,7 @@ import Form from '../components/Form';
         },
   
         //make sure to serialize your JSON body
-        body: JSON.stringify({
+        body: JSON.stringify({ //data sent with post req
           title: topic.title,
           body: topic.body,
           author: user?.user.username,

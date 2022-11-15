@@ -12,7 +12,7 @@ const Lounge = () => {
   const [topics, setTopics] = useState([])
  
 
-  const getTopics = async () => {
+  const getTopics = async () => { //get topics, fetch gets data back and sets it to setstopics
     try {
       const response = await fetch('http://localhost:3001/topics') 
       const topics = await response.json()
@@ -50,13 +50,13 @@ const Lounge = () => {
     }) 
   }
 
-  useEffect(() => {
+  useEffect(() => { //runs the first render when going to lounge page 
     if(authenticated()) {
       navigate('/')
     }
     getTopics()
     decodeUser()
-  }, [user?.isAuth])
+  }, [user?.isAuth]) //if isAuth is not here just thr ? instead of error 
 
   return (
     <div className='pages'>
