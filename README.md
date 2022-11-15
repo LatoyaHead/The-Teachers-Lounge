@@ -18,4 +18,9 @@ The Teacher's Lounge is known for being the most important room for educators. H
 
 - Update Avatar to user for messaging
 - Allow users to choose Lounge Rooms
+- Create a Delete Modal 
+
+## Github Repos
+https://github.com/LatoyaHead/The-Teachers-Lounge.git
+https://github.com/LatoyaHead/The-Teachers-Lounge-API.git
  
