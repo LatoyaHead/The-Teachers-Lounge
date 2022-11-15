@@ -13,14 +13,14 @@ const Navbar = () => {
   useEffect(() => {
 
   }, [context.isAuth])
-  console.log('context', context);
+ 
 
   return (
     <nav className='nav-container'>
       <div className='signin'>
         <NavLink style={{color:'rgb(245,245,245, 0.6)'}} to='/new'>New Post</NavLink>
         <NavLink style={{color:'rgb(245,245,245, 0.6)'}} to='/lounge'>Lounge</NavLink>
-        <p style={{color:'rgb(245,245,245, 0.6)', fontSize:'25px', fontWeight:"bold"}} onClick={handleSignOut}>Sign Out</p>
+        <p style={{color:'rgb(245,245,245, 0.6)', fontSize:'25px', fontWeight:"bold", cursor:'pointer'}} onClick={handleSignOut}>Sign Out</p>
       </div>
     </nav>
   )

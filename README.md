@@ -16,9 +16,6 @@ The Teacher's Lounge is known for being the most important room for educators. H
 
 ## Upcoming Features
 
-- Add More Categories
-- Timed Game Mode
-- Seasonal Themes(Halloween, Thanksgiving, Christmas, etc.)
-- Disable buttons on Multi-player mode(Player 1 can not enter text while it's Player 2 Turn)
-- Add Hints
+- Update Avatar to user for messaging
+- Allow users to choose Lounge Rooms
  

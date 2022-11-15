@@ -48,7 +48,7 @@ function App() {
     const token = localStorage.getItem('token')
     if(token) {
       const decode = decodeToken(token)
-      setUser(decode.user)
+      setUser(decode?.user)
       setIsAuth(true)
     }
     

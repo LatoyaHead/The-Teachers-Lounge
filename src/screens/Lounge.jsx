@@ -24,18 +24,18 @@ const Lounge = () => {
   const authenticated = () => { //authenticating whether or not the user is logged in by checking token saved on localstorage
     const token = localStorage.getItem('token')
     if(token) {
-      user.setIsAuth(false)
+      user?.setIsAuth(false)
       return false
     }
-    user.setIsAuth(true)
+    user?.setIsAuth(true)
     return true
   }
   const decodeUser = () => {
     const token = localStorage.getItem('token')
     if(token) {
       const decode = decodeToken(token)
-      user.setUser(decode.user)
-      user.setIsAuth(true)
+      user?.setUser(decode?.user)
+      user?.setIsAuth(true)
     }
   }
   
@@ -56,11 +56,11 @@ const Lounge = () => {
     }
     getTopics()
     decodeUser()
-  }, [user.isAuth])
+  }, [user?.isAuth])
 
   return (
     <div className='pages'>
-      <Navbar signout={user.setIsAuth}/>
+      <Navbar signout={user?.setIsAuth}/>
       <div>
         <h1 style={{color:'rgb(136,0,0)', textAlign:'center', fontSize:'75px'}}>The Teacher's Lounge</h1>
         <hr className='line' />
@@ -89,7 +89,7 @@ const Lounge = () => {
             </div>
         </div>
           
-          {user.user._id ===  topic.author_id ? (
+          {user?.user?._id ===  topic.author_id ? ( //conditional statement that allows only the user to delete and edit their posts
           <div style={{display: 'flex', gap: 10, width: '100%'}}>
             <div className="parent-input-div">
               <button className="delete-button percent-100" style={{padding:'0.3em'}} onClick={() => handleDelete(topic._id)}>Delete</button>

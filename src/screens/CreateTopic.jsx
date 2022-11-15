@@ -8,6 +8,7 @@ import Form from '../components/Form';
   const CreateTopic = () => {
     const navigate = useNavigate()
     const user = useContext(UserContext)
+    console.log("user",user);
     const [topic, setTopic] = useState({title:"", body:""})
     const createTopic = (e) => {
       e.preventDefault()

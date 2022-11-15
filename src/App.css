@@ -97,6 +97,8 @@ a:hover {
   background: black;
   cursor: pointer;
   border-radius: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 .input-style {
   padding: 10px;
@@ -226,6 +228,7 @@ input[type="submit"] {
   display: flex;
   flex-direction: row;
   border-radius: 8px;
+  height: 600px;
 }
 .footer {
   background: rgb(245,245,245, 0.6);
