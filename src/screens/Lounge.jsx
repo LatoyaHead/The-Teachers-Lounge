@@ -8,7 +8,6 @@ import Footer from '../components/Footer';
 
 const Lounge = () => {
   const user = useContext(UserContext)
-  console.log(user);
   const navigate = useNavigate()
   const [topics, setTopics] = useState([])
  
@@ -45,7 +44,6 @@ const Lounge = () => {
       method: 'delete'
     })
     .then(res => {
-      console.log(res);
       setTopics(topics.filter(topic => topic._id !== topicId))
     }).catch(error => {
       console.log(error);
@@ -59,7 +57,7 @@ const Lounge = () => {
     getTopics()
     decodeUser()
   }, [user.isAuth])
-console.log("topic", topics);
+
   return (
     <div className='pages'>
       <Navbar signout={user.setIsAuth}/>
@@ -73,10 +71,10 @@ console.log("topic", topics);
       {topics.map((topic) => (
         <div className="card" key={topic._id}>
           <div style={{ padding: 10, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-            <a href={`/topic-details/${topic._id}`} style={{ fontSize: 20, justifyContent:'center', padding: 0}}>
+            <Link to={`/topic-details/${topic._id}`} style={{ fontSize: 20, justifyContent:'center', padding: 0}}>
             {" "}
             <h2>{topic.title}</h2>
-            </a>
+            </Link>
           <div >
               <p style={{padding:'10px', fontSize:'20px',}} className="ellipsis">{topic.body}</p>
           </div>

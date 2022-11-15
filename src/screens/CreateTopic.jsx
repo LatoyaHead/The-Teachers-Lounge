@@ -33,7 +33,6 @@ import Form from '../components/Form';
       })
       .then(async(data) => {
         const res = await data.json()
-        console.log(res);
         if(data.status === 400) return
         navigate('/lounge')
         setTopic({title:'', body:''})

@@ -38,7 +38,6 @@ const Login = () => {
       console.log("Failed", error);
     })
   } 
-  
 
   return (
     <div className='signin'>

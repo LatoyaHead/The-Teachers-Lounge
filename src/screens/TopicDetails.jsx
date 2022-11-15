@@ -18,7 +18,7 @@ const TopicDetails = () => {
   const [pushedMessage, setPushedMessage] = useState([])
   const [message, setMessage] = useState({message: ''})
   const params = useParams()
-  console.log(params);
+
   const getTopic = async () => {
     try {
       const res = await fetch(`http://localhost:3001/${params.id}`)
@@ -59,7 +59,6 @@ const sendMessage = () => {
       })
       .then(async(data) => {
         const res = await data.json()
-        console.log(res);
         if(data.status === 400) return
         setMessage({message:''})
       })
@@ -70,7 +69,6 @@ const sendMessage = () => {
   useEffect(() => {
     getTopic()
   }, [])
-  console.log("message", pushedMessage);
 
   return (
     <div className='pages'>

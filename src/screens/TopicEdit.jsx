@@ -8,7 +8,7 @@ const TopicEdit = () => {
   const [topic, setTopic] = useState(null)
   const params = useParams()
   const navigate = useNavigate()
-console.log(params);
+
 const getTopic = async () => {
   try {
     const res = await fetch(`http://localhost:3001/${params.id}`)
@@ -22,7 +22,6 @@ const getTopic = async () => {
 useEffect(() => {
   getTopic()
 }, [])
-console.log(topic);
 
 const handleOnChange = (e) => {
   setTopic({...topic, [e.target.name]:e.target.value})
