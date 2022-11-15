@@ -21,6 +21,6 @@ The Teacher's Lounge is known for being the most important room for educators. H
 - Create a Delete Modal 
 
 ## Github Repos
-https://github.com/LatoyaHead/The-Teachers-Lounge.git
-https://github.com/LatoyaHead/The-Teachers-Lounge-API.git
+- https://github.com/LatoyaHead/The-Teachers-Lounge.git
+- https://github.com/LatoyaHead/The-Teachers-Lounge-API.git
  
