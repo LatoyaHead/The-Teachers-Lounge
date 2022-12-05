@@ -5,6 +5,7 @@ import { NavLink, useNavigate } from 'react-router-dom'
 
 const Login = () => {
   const navigate = useNavigate()
+  const apiUrl = process.env.REACT_APP_URL || 'http://localhost:3001'
   const [user, setUser] = useState({email:'', password:''})
   const handleOnChange = (e) => {
     setUser({...user, [e.target.name]:e.target.value})
@@ -13,7 +14,7 @@ const Login = () => {
     if(user.email === '' || user.password === ''){
       return
     }
-    fetch('http://localhost:3001/signin', {
+    fetch(`${apiUrl}/signin`, {
       method: 'post',
       headers: {
         'Accept': 'application/json',

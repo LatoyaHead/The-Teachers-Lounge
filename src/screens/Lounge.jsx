@@ -10,11 +10,11 @@ const Lounge = () => {
   const user = useContext(UserContext)
   const navigate = useNavigate()
   const [topics, setTopics] = useState([])
- 
+  const apiUrl = process.env.REACT_APP_URL || 'http://localhost:3001'
 
-  const getTopics = async () => { //get topics, fetch gets data back and sets it to setstopics
+  const getTopics = async () => { //get topics, fetch gets data back and sets it to setsTopics
     try {
-      const response = await fetch('http://localhost:3001/topics') 
+      const response = await fetch(`${apiUrl}/topics`) 
       const topics = await response.json()
       setTopics(topics)
     }catch(error) {
@@ -40,7 +40,7 @@ const Lounge = () => {
   }
   
   const handleDelete = (topicId) => {
-    fetch(`http://localhost:3001/remove/${topicId}`, {
+    fetch(`${apiUrl}/remove/${topicId}`, {
       method: 'delete'
     })
     .then(res => {

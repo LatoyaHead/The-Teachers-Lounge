@@ -8,10 +8,11 @@ const TopicEdit = () => {
   const [topic, setTopic] = useState(null)
   const params = useParams()
   const navigate = useNavigate()
+  const apiUrl = process.env.REACT_APP_URL || 'http://localhost:3001'
 
 const getTopic = async () => {
   try {
-    const res = await fetch(`http://localhost:3001/${params.id}`)
+    const res = await fetch(`http:///${params.id}`)
     const topic = await res.json()
     setTopic(topic)
   }catch(error) {
@@ -29,7 +30,7 @@ const handleOnChange = (e) => {
 const editTopic = async (e) => {
   e.preventDefault()
   try {
-    const res = await fetch(`http://localhost:3001/${params.id}`,{ //send id of the post we want to edit 
+    const res = await fetch(`${apiUrl}/${params.id}`,{ //send id of the post we want to edit 
       method: 'put',
       headers: {
         'Accept': 'application/json',

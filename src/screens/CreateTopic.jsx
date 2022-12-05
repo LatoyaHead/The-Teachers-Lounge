@@ -9,13 +9,14 @@ import Form from '../components/Form';
     const navigate = useNavigate()
     const user = useContext(UserContext)
     console.log("user",user);
+    const apiUrl = process.env.REACT_APP_URL || 'http://localhost:3001'
     const [topic, setTopic] = useState({title:"", body:""})
     const createTopic = (e) => {
       e.preventDefault()
       if(topic.title === '' || topic.body === ''){
         return
       }
-      fetch('http://localhost:3001/topic', { //
+      fetch(`${apiUrl}/topic`, { //
         method: 'post',
         headers: {
           'Accept': 'application/json',

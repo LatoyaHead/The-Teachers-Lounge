@@ -15,6 +15,7 @@ const pusher = new Pusher(process.env.REACT_APP_PUSHER_KEY, {
 
 const TopicDetails = () => {
   const user = useContext(UserContext)
+  const apiUrl = process.env.REACT_APP_URL || 'http://localhost:3001'
   const [topic, setTopic] = useState(null)
   const [pushedMessage, setPushedMessage] = useState([])
   const [message, setMessage] = useState({message: ''})
@@ -22,7 +23,7 @@ const TopicDetails = () => {
 
   const getTopic = async () => {
     try {
-      const res = await fetch(`http://localhost:3001/${params.id}`)
+      const res = await fetch(`${apiUrl}/${params.id}`)
       const topic = await res.json()
       setTopic(topic)
     }catch(error) {
@@ -43,7 +44,7 @@ const TopicDetails = () => {
     if(message.message === ''){
       return
     }
-    fetch('http://localhost:3001/message', {
+    fetch(`${apiUrl}/message`, {
       method: 'post',
       headers: {
         'Accept': 'application/json',
